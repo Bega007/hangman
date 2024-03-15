@@ -1,0 +1,12 @@
+{
+    "@@locale": "fr",
+    "localeCode": "fr",
+    "nativeLocaleName": "Français",
+
+    "hangMan": "BOURREAU",
+    "start": "Commencer",
+    "highScores": "Scores élevés",
+    "language": "Langue",
+    "noScoresYet": "Aucun score pour l'instant !",
+    "exit": "Sortie"
+}

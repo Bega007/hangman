@@ -1,0 +1,13 @@
+{
+    "@@locale": "fa",
+
+  "localeCode": "fa",
+  "nativeLocaleName": "فارسی",
+
+  "hangMan": "جلاد",
+    "start": "شروع کنید",
+    "highScores": "نمرات بالا",
+    "language": "زبان",
+    "noScoresYet": "هنوز امتیازی وجود ندارد!",
+    "exit": "خارج شوید"
+}

@@ -1,0 +1,13 @@
+{
+    "@@locale": "ar",
+
+    "localeCode": "ar",
+    "nativeLocaleName": "عربي",
+
+    "hangMan": "الجلاد",
+    "start": "يبدأ",
+    "highScores": "نتائج عالية",
+    "language": "لغة",
+    "noScoresYet": "لا توجد نتائج حتى الآن!",
+    "exit": "مخرج"
+}

@@ -1,0 +1,13 @@
+{
+    "@@locale": "tr",
+
+  "localeCode": "tr",
+  "nativeLocaleName": "Türkçe",
+
+  "hangMan": "ADAM ASMACA",
+    "start": "Başlangıç",
+    "highScores": "Yüksek puanlar",
+    "language": "Dil",
+    "noScoresYet": "Henüz Puan Yok!",
+    "exit": "Çıkış"
+}

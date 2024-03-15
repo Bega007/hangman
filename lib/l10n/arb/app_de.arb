@@ -1,0 +1,13 @@
+{
+    "@@locale": "de",
+
+  "localeCode": "de",
+  "nativeLocaleName": "Deutsch",
+
+  "hangMan": "HENKER",
+    "start": "Anfang",
+    "highScores": "Hohe Punktzahlen",
+    "language": "Sprache",
+    "noScoresYet": "Noch keine Ergebnisse!",
+    "exit": "Ausfahrt"
+}

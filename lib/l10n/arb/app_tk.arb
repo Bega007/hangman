@@ -1,0 +1,14 @@
+{
+    "@@locale": "tk",
+  
+    "localeCode": "tk",
+    "nativeLocaleName": "Türkmen",
+
+
+    "hangMan": "ADAM ASMA",
+    "start": "Başla",
+    "highScores": "Yokary ballar",
+    "language": "Dil",
+    "noScoresYet": "Entek bal ýok!",
+    "exit": "Çykyş"
+  }

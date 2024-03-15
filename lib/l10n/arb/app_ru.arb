@@ -1,0 +1,14 @@
+{
+    "@@locale": "ru",
+  
+    "localeCode": "ru",
+    "nativeLocaleName": "Русский",
+
+    "hangMan": "ПАЛАЧ",
+    "start": "Начинать",
+    "highScores": "Высокие баллы",
+    "language": "Язык",
+    "noScoresYet": "Оценок пока нет!",
+    "exit": "Выход"
+  }
+  

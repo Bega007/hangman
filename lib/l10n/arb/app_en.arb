@@ -1,0 +1,13 @@
+{
+    "@@locale": "en",
+  
+    "localeCode": "en",
+    "nativeLocaleName": "English",
+  
+    "hangMan": "HANGMAN",
+    "start": "Start",
+    "highScores": "High Scores",
+    "language": "Language",
+    "noScoresYet": "No Scores Yet!",
+    "exit": "Exit"
+  }
