@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-"/Users/bega/Desktop/Simulator Screenshot - iPhone 15 Pro - 2024-03-15 at 06.53.33.png"
+![Simulator Screenshot - iPhone 15 Pro - 2024-03-15 at 06 53 33](https://github.com/Bega007/hangman/assets/106582854/331fc06b-700e-4543-a3af-4f7ab28eda00)
  width=350>
 </p>
 
