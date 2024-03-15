@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src = "![Simulator Screenshot - iPhone 15 Pro - 2024-03-15 at 06 53 33](https://github.com/Bega007/hangman/assets/106582854/d1adfc14-5ae5-4c0a-9fea-8d1d00ab74ca)"
+"/Users/bega/Desktop/Simulator Screenshot - iPhone 15 Pro - 2024-03-15 at 06.53.33.png"
  width=350>
 </p>
 
