@@ -5,8 +5,7 @@
 </p>
 
 <p align="center">
-"![Simulator Screenshot - iPhone 15 Pro - 2024-03-15 at 06 53 33](https://github.com/Bega007/hangman/assets/106582854/331fc06b-700e-4543-a3af-4f7ab28eda00)"
- width=350>
+![Simulator Screenshot - iPhone 15 Pro - 2024-03-15 at 06 53 33](https://github.com/Bega007/hangman/assets/106582854/6b8906a5-d9d7-44a8-907e-8b933bccaa6a)width=350>
 </p>
 
 
