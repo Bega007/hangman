@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:hangman_game/utilities/hangman_questions.dart';
 import 'package:hangman_game/utilities/hangman_words.dart';
 import 'package:hangman_game/utilities/score_db.dart' as score_database;
 import 'package:hangman_game/components/word_button.dart';
@@ -13,11 +12,12 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class GameScreen extends StatefulWidget {
-  const GameScreen(
-      {super.key, required this.hangmanObject, required this.hangmanQuestions});
+  const GameScreen({
+    super.key,
+    required this.hangmanObject,
+  });
 
   final HangmanWords hangmanObject;
-  final HangmanQuestions hangmanQuestions;
 
   @override
   State<GameScreen> createState() => _GameScreenState();
@@ -28,7 +28,6 @@ class _GameScreenState extends State<GameScreen> {
   int lives = 5;
   Alphabet englishAlphabet = Alphabet();
   late String question;
-  late String unhiddenQuestion;
   late String word;
   late String hiddenWord;
   List<String> wordList = [];
@@ -38,13 +37,13 @@ class _GameScreenState extends State<GameScreen> {
   late bool hintStatus;
   int hangState = 0;
   int wordCount = 0;
+  int questionCount = 0;
   bool finishedGame = false;
   bool resetGame = false;
 
   void newGame() {
     setState(() {
       widget.hangmanObject.resetWords();
-      widget.hangmanQuestions.readQuestions();
       englishAlphabet = Alphabet();
       lives = 5;
       wordCount = 0;
@@ -96,6 +95,7 @@ class _GameScreenState extends State<GameScreen> {
       hintLetters.add(i);
     }
   }
+
 
   void wordPress(int index) {
     if (lives == 0) {
@@ -223,129 +223,10 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
-  void initQuestions() {
-    finishedGame = false;
-    resetGame = false;
-    hintStatus = true;
-    hangState = 0;
-    buttonStatus = List.generate(26, (index) {
-      return true;
-    });
-    question = widget.hangmanQuestions.getQuestion();
-    if (word.isNotEmpty) {
-      unhiddenQuestion =
-          widget.hangmanQuestions.getUnhiddenQuestions(word.length);
-    } else {
-      returnHomePage();
-    }
-
-    for (int i = 0; i < word.length; i++) {
-      wordList.add(word[i]);
-      hintLetters.add(i);
-    }
-  }
-
-  void questionPress(int index) {
-    if (lives == 0) {
-      returnHomePage();
-    }
-
-    if (finishedGame) {
-      setState(() {
-        resetGame = true;
-      });
-      return;
-    }
-
-   /* bool checkQuestions = false;
-    setState(() {
-      for (int i = 0; i < questionList.length; i++) {
-        /*if (wordList[i] == englishAlphabet.alphabet[index]) {
-          check = true;
-          wordList[i] = '';
-          //hiddenWord = hiddenWord.replaceFirst(RegExp('_'), word[i], i);
-        }
-      }
-      for (int i = 0; i < wordList.length; i++) {
-        if (wordList[i] == '') {
-          hintLetters.remove(i);
-        }
-      }
-      if (!check) {
-        hangState += 1;
-      }*/
-
-        if (hangState == 6) {
-          finishedGame = true;
-          lives -= 1;
-          if (lives < 1) {
-            if (wordCount > 0) {
-              Score score = Score(
-                  id: 1,
-                  scoreDate: DateTime.now().toString(),
-                  userScore: wordCount);
-              score_database.manipulateDatabase(score, database);
-            }
-            Alert(
-                style: kGameOverAlertStyle,
-                context: context,
-                title: "Game Over!",
-                desc: "Your score is $wordCount",
-                buttons: [
-                  DialogButton(
-                    color: kDialogButtonColor,
-                    onPressed: () => returnHomePage(),
-                    child: Icon(
-                      MdiIcons.home,
-                      size: 30.0,
-                    ),
-                  ),
-                  DialogButton(
-                    onPressed: () {
-                      newGame();
-                      Navigator.pop(context);
-                    },
-                    color: kDialogButtonColor,
-                    child: Icon(MdiIcons.refresh, size: 30.0),
-                  ),
-                ]).show();
-          } else {
-            Alert(
-              context: context,
-              style: kFailedAlertStyle,
-              type: AlertType.error,
-              title: word,
-//            desc: "You Lost!",
-              buttons: [
-                DialogButton(
-                  radius: BorderRadius.circular(10),
-                  width: 127,
-                  color: kDialogButtonColor,
-                  height: 52,
-                  child: Icon(
-                    MdiIcons.arrowRightThick,
-                    size: 30.0,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      Navigator.pop(context);
-                      initWords();
-                    });
-                  },
-                ),
-              ],
-            ).show();
-          }
-        }
-      }
-    });*/
-  }
-
   @override
   void initState() {
     super.initState();
     initWords();
-    initQuestions();
   }
 
   @override
@@ -353,7 +234,6 @@ class _GameScreenState extends State<GameScreen> {
     if (resetGame) {
       setState(() {
         initWords();
-        initQuestions();
       });
     }
     return PopScope(
@@ -451,7 +331,7 @@ class _GameScreenState extends State<GameScreen> {
                           child: FittedBox(
                             fit: BoxFit.fitWidth,
                             child: Text(
-                              unhiddenQuestion,
+                              hiddenWord,
                               style: kWordTextStyle,
                             ),
                           ),

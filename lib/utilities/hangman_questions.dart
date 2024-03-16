@@ -2,49 +2,49 @@ import 'dart:math';
 
 import 'package:flutter/services.dart' show rootBundle;
 
-class HangmanQuestions {
-  int questionCounter = 0;
-  List<int> _usedNumberQ = [];
-  List<String> _questions = [];
+class HangmanWords {
+  int wordCounter = 0;
+  List<int> _usedNumbers = [];
+  List<String> _words = [];
 
-  Future readQuestions() async {
-    String fileText = await rootBundle.loadString('assets/hangman_questions.txt');
-    _questions = fileText.split('\n');
+  Future readWords() async {
+    String fileText = await rootBundle.loadString('assets/hangman_words.txt');
+    _words = fileText.split('\n');
   }
 
   void resetWords() {
-    questionCounter = 0;
-    _usedNumberQ = [];
+    wordCounter = 0;
+    _usedNumbers = [];
 //    _words = [];
   }
 
   // ignore: missing_return
-  getQuestion() {
-    questionCounter += 1;
-    var randQ = Random();
-    int questionsLength = _questions.length;
-    int randNumberQ = randQ.nextInt(questionsLength);
+  getWord() {
+    wordCounter += 1;
+    var rand = Random();
+    int wordLength = _words.length;
+    int randNumber = rand.nextInt(wordLength);
     bool notUnique = true;
-    if (questionCounter - 1 == _questions.length) {
+    if (wordCounter - 1 == _words.length) {
       notUnique = false;
       return '';
     }
     while (notUnique) {
-      if (!_usedNumberQ.contains(randNumberQ)) {
+      if (!_usedNumbers.contains(randNumber)) {
         notUnique = false;
-        _usedNumberQ.add(randNumberQ);
-        return _questions[randNumberQ];
+        _usedNumbers.add(randNumber);
+        return _words[randNumber];
       } else {
-        randNumberQ = randQ.nextInt(questionsLength);
+        randNumber = rand.nextInt(wordLength);
       }
     }
   }
 
-  String getUnhiddenQuestions(int questionsLength) {
-    String unhiddenQuestion = '';
-    for (int i = 0; i < questionsLength; i++) {
-     unhiddenQuestion += '_';
+  String getHiddenWord(int wordLength) {
+    String hiddenWord = '';
+    for (int i = 0; i < wordLength; i++) {
+      hiddenWord += '_';
     }
-    return unhiddenQuestion;
+    return hiddenWord;
   }
 }

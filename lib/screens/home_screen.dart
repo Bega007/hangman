@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:hangman_game/components/action_button.dart';
 import 'package:hangman_game/main.dart';
 import 'package:hangman_game/utilities/constants.dart';
-import 'package:hangman_game/utilities/hangman_questions.dart';
 import 'package:hangman_game/utilities/hangman_words.dart';
 import 'package:hangman_game/utilities/language.dart';
 import 'package:hangman_game/utilities/language_constants.dart';
@@ -13,7 +12,6 @@ import 'loading_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final HangmanWords hangmanWords = HangmanWords();
-  final HangmanQuestions hangmanQuestions = HangmanQuestions();
 
   HomeScreen({super.key});
 
@@ -77,7 +75,6 @@ class HomeScreenState extends State<HomeScreen> {
                           MaterialPageRoute(
                             builder: (context) => GameScreen(
                               hangmanObject: widget.hangmanWords,
-                              hangmanQuestions: widget.hangmanQuestions,
                             ),
                           ),
                         );
