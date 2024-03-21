@@ -83,8 +83,11 @@ class _GameScreenState extends State<GameScreen> {
     });
     wordList = [];
     hintLetters = [];
-    word = widget.hangmanObject.getWord();
+    int wordIndex = widget.hangmanObject.getWord();
+    word = HangmanWords.words.keys.elementAt(wordIndex);
+    question = HangmanWords.words.values.elementAt(wordIndex);
     if (word.isNotEmpty) {
+      // dev.log(word.toString());
       hiddenWord = widget.hangmanObject.getHiddenWord(word.length);
     } else {
       returnHomePage();
@@ -95,7 +98,6 @@ class _GameScreenState extends State<GameScreen> {
       hintLetters.add(i);
     }
   }
-
 
   void wordPress(int index) {
     if (lives == 0) {
@@ -331,7 +333,7 @@ class _GameScreenState extends State<GameScreen> {
                           child: FittedBox(
                             fit: BoxFit.fitWidth,
                             child: Text(
-                              hiddenWord,
+                              question,
                               style: kWordTextStyle,
                             ),
                           ),

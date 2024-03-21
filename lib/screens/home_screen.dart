@@ -23,7 +23,7 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    widget.hangmanWords.readWords();
+    //widget.hangmanWords.readWords();
 
     void dropdownCallback(Language? language) {
       if (language is String) {
