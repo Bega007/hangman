@@ -5,13 +5,16 @@ import 'package:flutter/services.dart' show rootBundle;
 class HangmanWords {
   int wordCounter = 0;
   List<int> _usedNumbers = [];
-  static Map<String, String> words = {};
-  /* List<String> _words = [];
+  // static List<String> words = [];
+  static Map<String, String> words = {
+    'answer':'questions will be here',
+    'example': 'example question',
+  };
 
-  Future readWords() async {
-    String fileText = await rootBundle.loadString('assets/hangman_words.txt');
-    _words = fileText.split('\n');
-  } */
+  // Future readWords() async {
+  //   String fileText = await rootBundle.loadString('assets/hangman_words.txt');
+  //   words = fileText.split('\n');
+  // }
 
   void resetWords() {
     wordCounter = 0;
@@ -28,7 +31,7 @@ class HangmanWords {
     bool notUnique = true;
     if (wordCounter - 1 == words.length) {
       notUnique = false;
-      return '';
+      return 0;
     }
     while (notUnique) {
       if (!_usedNumbers.contains(randNumber)) {

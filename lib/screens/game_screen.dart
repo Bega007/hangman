@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'dart:developer' as log;
 import 'package:flutter/material.dart';
 import 'package:hangman_game/utilities/hangman_words.dart';
 import 'package:hangman_game/utilities/score_db.dart' as score_database;
@@ -83,7 +83,9 @@ class _GameScreenState extends State<GameScreen> {
     });
     wordList = [];
     hintLetters = [];
+
     int wordIndex = widget.hangmanObject.getWord();
+    log.log(wordIndex.toString());
     word = HangmanWords.words.keys.elementAt(wordIndex);
     question = HangmanWords.words.values.elementAt(wordIndex);
     if (word.isNotEmpty) {
